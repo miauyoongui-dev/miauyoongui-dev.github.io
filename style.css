@@ -1,0 +1,136 @@
+/* styles.css - estilos generales de la página */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+header, footer {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+h1.titulo-principal {
+  text-align: center;
+  margin-top: 80px; /* ajusta según prefieras la distancia desde arriba */
+}
+
+h2 {
+  margin: 1.5rem 0 0.5rem;
+}
+
+.hero p, section p {
+  margin: 0 0 1rem;
+}
+
+ul {
+  margin: 0 0 1rem 1.25rem;
+}
+
+footer {
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* ========================= */
+/* 🔥 ESTILO PROYECTOS (Flip) */
+/* ========================= */
+
+ul.proyectos {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0; /* más separación arriba y abajo */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px; /* 🔥 más espacio entre tarjetas */
+}
+
+ul.proyectos li {
+  margin: 0;
+}
+
+.proyecto-card {
+  perspective: 1000px; /* habilita 3D */
+}
+
+.proyecto-inner {
+  position: relative;
+  width: 100%;
+  height: 220px; /* un poco más alto para mejor proporción */
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+/* flip en hover */
+.proyecto-card:hover .proyecto-inner {
+  transform: rotateY(180deg);
+}
+
+.proyecto-front,
+.proyecto-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Frente (título + icono) */
+.proyecto-front {
+  background: #ffffff;
+  color: #1f2937;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-left: 4px solid #111111;
+}
+
+/* Reverso (descripción en negro) */
+.proyecto-back {
+  background: #111111; /* 🔥 fondo negro */
+  color: #f9f9f9;
+  transform: rotateY(180deg);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer .footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer .footer-links a {
+  color: #1f2937;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .footer-links a:hover {
+  color: #2563eb;
+}
